@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script type="text/javascript">
+        var skins = [ "gradation-vertical", "gradation-horizontal", "celerity", "tropo-red", "tropo-purple", "lynx", "blueshift" ];
+        chrome.browserAction.onClicked.addListener(function(tab) {
+            for( var i in skins) {
+                var skin = skins[i];
+
+                var url = tab.url;
+                url = url.replace(/usescheme=.*?(&|$)/, "usescheme="+skins+"$1");
+
+                if ( url.indexOf("usescheme=") == -1 ) {
+                    url += url.indexOf("?") == -1
+                        ? "?usescheme=" + skin
+                        : "&usescheme=" + skin;
+                }
+
+                chrome.tabs.create({
+                    url: url,
+                    selected: false
+                });
+            }
+        })
+    </script>
+</head>
+<body></body>
+</html>
