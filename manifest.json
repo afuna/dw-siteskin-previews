@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "View this page in all possible DW Site Skins",
   "browser_action": {
-    "default_title": "close"
+    "default_title": "DW Previews"
   },
   "background_page": "background.html"
 }
